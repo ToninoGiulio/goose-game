@@ -21,9 +21,12 @@ node {
             sh "mvn -DskipTests package"
             archiveArtifacts artifacts: 'target/goose-1.0-SNAPSHOT-jar-with-dependencies.jar', fingerprint: true
         }
+        stage('create container'){
+            sh "docker build -t goose-game ."
+        }
     }
      finally{
-        echo "ANTONIO --- finally - report"
-        junit 'target/surefire-report/**/*.xml'
+         echo "ANTONIO --- finally - report"
+         junit 'target/surefire-report/**/*.xml'
     }
 }
