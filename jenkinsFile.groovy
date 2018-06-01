@@ -24,6 +24,6 @@ node {
     }
      finally{
         echo "ANTONIO --- finally - report"
-        junit 'target/surefire-report//**/*.xml'
+        junit 'target/surefire-report/**/*.xml'
     }
 }
